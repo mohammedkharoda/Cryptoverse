@@ -8,7 +8,7 @@ import {
   CryptoDetails,
   News,
 } from "./components";
-import { Routes, Router, Route } from "react-router-dom";
+import { Routes, Router, Route, Link } from "react-router-dom";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -29,8 +29,21 @@ function App() {
             </Routes>
           </div>
         </Layout>
+        <div className="footer">
+          <Typography.Title
+            level={5}
+            style={{ color: "white", textAlign: "center" }}
+          >
+            Cryptoverse <br />
+            All right reserved
+          </Typography.Title>
+          <Space>
+            <Link to="/">Home</Link>
+            <Link to="/exchanges">Exchanges</Link>
+            <Link to="/news">News</Link>
+          </Space>
+        </div>
       </div>
-      <div className="footer"></div>
     </div>
   );
 }
