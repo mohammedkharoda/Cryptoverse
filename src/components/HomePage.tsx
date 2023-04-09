@@ -7,6 +7,10 @@ const { Title } = Typography;
 const Homepage = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
   console.log(data);
+  const globalState = data?.data?.stats;
+  if (isFetching) {
+    return "Loading";
+  }
   return (
     <div>
       <Title level={2} className="heading">
@@ -15,7 +19,10 @@ const Homepage = () => {
       <Row>
         {/*Total crypto*/}
         <Col span={12}>
-          <Statistic title="Total Crypto Curreience" value="5" />
+          <Statistic
+            title="Total Crypto Curreience"
+            value={globalState?.total}
+          />
         </Col>
         {/*  Exchanges*/}
         <Col span={12}>
