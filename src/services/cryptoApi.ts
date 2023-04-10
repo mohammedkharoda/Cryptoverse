@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// Note: Change v1 to v2 on rapid api
 
 const cryptoApiHeaders = {
   "x-rapidapi-host": "coinranking1.p.rapidapi.com",
@@ -8,13 +7,6 @@ const cryptoApiHeaders = {
 };
 const createRequest = (url: any) => ({ url, headers: cryptoApiHeaders });
 export const cryptoApi = createApi({
-  /**
-   * The configuration object for the `createApi` function from the `@reduxjs/toolkit/query` package.
-   * It specifies the `reducerPath` and `baseQuery` options.
-   * @param {string} reducerPath - The name of the slice in the Redux store where the API data will be stored.
-   * @param {fetchBaseQuery} baseQuery - The base query function that will be used to make API requests.
-   * @returns None
-   */
   reducerPath: "cryptoApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://coinranking1.p.rapidapi.com",
