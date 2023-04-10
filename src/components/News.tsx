@@ -52,7 +52,7 @@ const News: FC<SimplifedData> = ({ simplified }) => {
           >
             <Option value="Cryptocurrency">Crypto currency</Option>
             {data?.data?.coins.map((coin: any) => (
-              <Option value={coin.name}>{coin.name}</Option>
+              <Option value={coin?.name}>{coin?.name}</Option>
             ))}
           </Select>
         </Col>

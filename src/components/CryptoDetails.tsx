@@ -96,60 +96,69 @@ const CryptoDetails = () => {
   return (
     <div>
       <Col className="coin-detail-container">
-        <Title level={2} className="coin-name">
-          {cryptoDetails?.name} ({cryptoDetails?.symbol}) Price
-        </Title>
-        <p>
-          {cryptoDetails.name} live Price in USD dollars.View value statistic,
-          market capand supply
-        </p>
-      </Col>
-      <Select
-        defaultValue="7d"
-        className="select-timeperiod"
-        placeholder="Select the Time Period"
-        onChange={(value) => setTimePeriod(value)}
-      >
-        {time.map((date) => (
-          <Option key={date}>{date}</Option>
-        ))}
-      </Select>
-      {/* line charts */}
-      <Col className="other-stats-info">
-        <Col className="coin-value-statistics">
-          <Col className="coin-value-statistics-headline">
-            <Title level={3} className="coin-value-statistics-title">
-              {cryptoDetails.name} Value Statistics
-            </Title>
-            <p>An overview showing the value statistics</p>
-          </Col>
-          {genericStats.map(({ icon, title, value }) => (
-            <Col className="coin-stats">
-              <Col className="coin-stats-name">
-                <Text>{icon}</Text>
-                <Text>{title}</Text>
-              </Col>
-              <Text className="stats">{value}</Text>
-            </Col>
-          ))}
+        <Col className="coin-heading-container">
+          <Title level={2} className="coin-name">
+            {data?.data?.coin?.name} ({data?.data?.coin.symbol}) Price
+          </Title>
+          <p>
+            {cryptoDetails?.name} live price in US Dollar (USD). View value
+            statistics, market cap and supply.
+          </p>
         </Col>
-        {/* Generics */}
-        <Col className="other-stats-info">
-          <Col className="coin-value-statistics-headline">
-            <Title level={3} className="coin-value-statistics-title">
-              {cryptoDetails.name} Value Statistics
-            </Title>
-            <p>An overview showing the value statistics</p>
-          </Col>
-          {stats.map(({ icon, title, value }) => (
-            <Col className="coin-stats">
-              <Col className="coin-stats-name">
-                <Text>{icon}</Text>
-                <Text>{title}</Text>
-              </Col>
-              <Text className="stats">{value}</Text>
-            </Col>
+        <Select
+          defaultValue="7d"
+          className="select-timeperiod"
+          placeholder="Select Timeperiod"
+          onChange={(value) => setTimePeriod(value)}
+        >
+          {time.map((date) => (
+            <Option key={date}>{date}</Option>
           ))}
+        </Select>
+        {/* line chart */}
+        <Col className="stats-container">
+          <Col className="coin-value-statistics">
+            <Col className="coin-value-statistics-heading">
+              <Title level={3} className="coin-details-heading">
+                {cryptoDetails?.name} Value Statistics
+              </Title>
+              <p>
+                An overview showing the statistics of {cryptoDetails?.name},
+                such as the base and quote currency, the rank, and trading
+                volume.
+              </p>
+            </Col>
+            {stats.map(({ icon, title, value }) => (
+              <Col className="coin-stats">
+                <Col className="coin-stats-name">
+                  <Text>{icon}</Text>
+                  <Text>{title}</Text>
+                </Col>
+                <Text className="stats">{value}</Text>
+              </Col>
+            ))}
+          </Col>
+          <Col className="other-stats-info">
+            <Col className="coin-value-statistics-heading">
+              <Title level={3} className="coin-details-heading">
+                Other Stats Info
+              </Title>
+              <p>
+                An overview showing the statistics of {cryptoDetails?.name},
+                such as the base and quote currency, the rank, and trading
+                volume.
+              </p>
+            </Col>
+            {genericStats.map(({ icon, title, value }) => (
+              <Col className="coin-stats">
+                <Col className="coin-stats-name">
+                  <Text>{icon}</Text>
+                  <Text>{title}</Text>
+                </Col>
+                <Text className="stats">{value}</Text>
+              </Col>
+            ))}
+          </Col>
         </Col>
       </Col>
     </div>
