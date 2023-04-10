@@ -8,6 +8,13 @@ const cryptoApiHeaders = {
 };
 const createRequest = (url: any) => ({ url, headers: cryptoApiHeaders });
 export const cryptoApi = createApi({
+  /**
+   * The configuration object for the `createApi` function from the `@reduxjs/toolkit/query` package.
+   * It specifies the `reducerPath` and `baseQuery` options.
+   * @param {string} reducerPath - The name of the slice in the Redux store where the API data will be stored.
+   * @param {fetchBaseQuery} baseQuery - The base query function that will be used to make API requests.
+   * @returns None
+   */
   reducerPath: "cryptoApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://coinranking1.p.rapidapi.com",
@@ -20,8 +27,6 @@ export const cryptoApi = createApi({
     getCryptoDetails: builder.query({
       query: (coinId) => createRequest(`/coin/${coinId}`),
     }),
-
-    // Note: Change the coin price history endpoint from this - `coin/${coinId}/history/${timeperiod} to this - `coin/${coinId}/history?timeperiod=${timeperiod}`
     getCryptoHistory: builder.query({
       query: ({ coinId, timeperiod }) =>
         createRequest(`coin/${coinId}/history?timeperiod=${timeperiod}`),

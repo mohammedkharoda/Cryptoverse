@@ -12,7 +12,7 @@ const Homepage = () => {
     return "Loading";
   }
   return (
-    <div>
+    <>
       <Title level={2} className="heading">
         Global Crypto Stats
       </Title>
@@ -26,24 +26,39 @@ const Homepage = () => {
         </Col>
         {/*  Exchanges*/}
         <Col span={12}>
-          <Statistic title="Exchanges" value="5" />
+          <Statistic
+            title="Exchanges"
+            value={millify(globalState.totalExchanges)}
+          />
         </Col>
         {/*  Market cap*/}
         <Col span={12}>
-          <Statistic title="Market Capitals" value="5" />
+          <Statistic
+            title="Market Capitals"
+            value={millify(globalState.totalMarketCap)}
+          />
         </Col>
 
         {/*  24h volume*/}
         <Col span={12}>
-          <Statistic title="24 hour volume" value="5" />
+          <Statistic
+            title="24 hour volume"
+            value={millify(globalState.total24hVolume)}
+          />
         </Col>
 
         {/*  Total market*/}
         <Col span={12}>
-          <Statistic title="Total market" value="5" />
+          <Statistic
+            title="Total market"
+            value={millify(globalState.totalMarkets)}
+          />
         </Col>
       </Row>
-    </div>
+      <div className="home-heading-container">
+        <Title></Title>
+      </div>
+    </>
   );
 };
 
