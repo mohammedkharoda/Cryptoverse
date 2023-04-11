@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Line } from "react-chartjs-2";
 import { Col, Row, Typography } from "antd";
 
@@ -24,7 +24,11 @@ ChartJS.register(
   Legend
 );
 
-const LineChart = ({ coinHistory, currentPrice, coinName }) => {
+const LineChart: FC<{ coinHistory: any; currentPrice: any; coinName: any }> = ({
+  coinHistory,
+  currentPrice,
+  coinName,
+}) => {
   const coinPrice = [];
   const coinTimestamp = [];
 
