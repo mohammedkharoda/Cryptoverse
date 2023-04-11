@@ -1,14 +1,13 @@
+import { Layout, Space, Typography } from "antd";
 import { useState } from "react";
-import { Layout, Typography, Space } from "antd";
+import { Link, Route, Routes } from "react-router-dom";
 import {
-  Navbar,
-  Exchanges,
-  Homepage,
-  Cryptocurrencies,
   CryptoDetails,
+  Cryptocurrencies,
+  Homepage,
+  Navbar,
   News,
 } from "./components";
-import { Routes, Router, Route, Link } from "react-router-dom";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -22,10 +21,12 @@ function App() {
           <div className="routes">
             <Routes>
               <Route path="/" element={<Homepage />} />
-              <Route path="/exchanges" element={<Exchanges />} />
-              <Route path="/cryptocurrencies" element={<Cryptocurrencies />} />
+              <Route
+                path="/cryptocurrencies"
+                element={<Cryptocurrencies simplified />}
+              />
               <Route path="/crypto/:coinId" element={<CryptoDetails />} />
-              <Route path="/news" element={<News />} />
+              <Route path="/news" element={<News simplified />} />
             </Routes>
           </div>
         </Layout>
