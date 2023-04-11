@@ -10,7 +10,7 @@ import spin from "../assets/Double.svg";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 
 interface SimplifedData {
-  simplified: boolean;
+  simplified?: boolean;
 }
 const { Text, Title } = Typography;
 const { Option } = Select;
@@ -90,9 +90,7 @@ const News: FC<SimplifedData> = ({ simplified }) => {
                     {news.provider[0]?.name}
                   </Text>
                 </div>
-                <Text>
-                  {moment(news.datePublished).startOf("ss").fromNow()}
-                </Text>
+                <Text>{moment(news.datePublished).startOf("s").fromNow()}</Text>
               </div>
             </a>
           </Card>

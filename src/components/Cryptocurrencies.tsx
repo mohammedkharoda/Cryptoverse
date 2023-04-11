@@ -20,7 +20,7 @@ interface Cryptodata {
 }
 
 interface SimplifedData {
-  simplified: boolean;
+  simplified?: boolean;
 }
 
 const Cryptocurrencies: FC<SimplifedData> = ({ simplified }) => {
